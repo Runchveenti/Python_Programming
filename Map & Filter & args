@@ -1,0 +1,33 @@
+# Cach 1
+a = [1,2,3,4]
+b = []
+for i in range(len(a)):
+    b.append(a[i]**2)
+print(b)
+
+# Cach 2: Dung ham map
+# Dinh nghia ham binh phuong
+def Square(x):
+    return x**2
+b = map(Square, a)
+b = list(b)
+print(b)
+
+# Cach 3: Dung ham map + lambda
+b = list(map(lambda x:x**2, a))
+print(b)
+
+# Filter
+ds = [1,2,3,4,5,6]
+n1 = list ( filter ( lambda i: i%2==0, ds))
+print (n1)
+
+# Viet ham tinh tong khong han che so nguyen
+def TinhTong(*ds):
+    s = 0
+    for i in ds:
+        s += i
+    return s
+
+s = TinhTong(1,2,3,4)
+print(s)

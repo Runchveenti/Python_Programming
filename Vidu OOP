@@ -1,0 +1,66 @@
+# Viết chương trình HĐT Python giải quyết bài toán
+# Nhập 1 danh sách n điểm trong mặt phẳng. Mỗi điểm có toạ độ (x, y)
+# a) In ra danh sách điểm và toạ độ
+# b) Tìm điểm ở xa gốc toạ độ nhất
+# c) Tìm cặp điểm gần nhau nhất 
+# d) Loại bỏ các điểm trùng nhau (nếu có), chỉ giữ lại 1 điểm
+
+# a)
+# Định nghĩa lớp Point2d
+# Nạp thư viện toán học để dùng hàm sqrt
+class Point2d:
+    def __init__(self, x=0, y=0):
+        self.x = x
+        self.y = y
+    # Phương thức tính khoảng cách đến gốc toạ độ
+    def distance(self):
+        return math.sqrt(self.x**2 + self.y**2)
+    # Phương thức in toạ độ điểm
+    def print_info(self):
+        print("({},{})".format(self.x, self.y))
+
+# Tạo danh sách điểm
+n = int(input("Nhập số điểm trong mặt phẳng: "))
+points_list = []
+# Nhập toạ độ từng điểm -> đưa vào danh sách
+for i in range(n):
+    print("Nhập điểm thứ {}: ".format(i+1))
+    x = int(input("x = "))
+    y = int(input("y = "))
+    p = Point2d(x, y)
+    points_list.append(p)
+p1 = Point2d()
+p1.print_info()
+p2 = Point2d(3,4)
+p2.print_info()
+
+#  b) Tìm (một) điểm nằm xa gốc toạ độ nhất
+max_distance = points_list[0].distance()
+max_point = points_list[0]
+for p in  points_list[1:]:
+    dist = p.distance()
+    if dist > max_distance:
+        max_distance = dist
+        max_point = p
+
+# In ra điểm xa nhất
+print("\nĐiểm có khoảng cách xa nhất là: ")
+max_point.print_info()
+
+# c) Tìm cặp điểm gần nhau nhất 
+closest_point1, closest_point2 = points_list[0] , points_list[1]
+min_distance = closest_point1.distance(closest_point2)
+# Xét từng cặp điểm vầ tìm cặp gần nhau nhất
+for p1 in points_list[-1:]:
+    for p2 in points_list:
+        if p1 != p2:
+          if p1.distance(p2) < min_distance:
+              min_distance = p1.distance(p2)
+              closest_point1, closest_point2 = p1, p2
+# In kết quả
+print("Cặp điểm gần nhau nhất là: ")
+closest_point1.print_info()
+closest_point2.print_info()
+print("")
+    
+    

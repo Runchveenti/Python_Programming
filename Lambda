@@ -1,0 +1,21 @@
+if __name__ == '__main__':
+    n=5
+    # Cach 1
+    s = 0
+    for i in range (n+1):
+        s += i**2
+    # in ket qua
+    print("S = {}".format(s))
+
+    # Cach 2
+    s = 0
+    for i in range (n+1):
+        s += Square(i)
+    print("S = {}".format(s))
+
+    # Cach 3
+    s = 0
+    for i in range (n+1):
+        x = lambda i: i**2
+        s += x(i)
+        print("S = {}".format(s))

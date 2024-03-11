@@ -1,0 +1,15 @@
+class Student:
+    # ham constructor
+    def __init__(self, id, name, grade):
+        self.id = id
+        self.name = name
+        self.grade = grade
+
+    # ham in thong tin
+    def print_info(self):
+        print("ID: " + self.id)
+        print("Name: " + self.name)
+        print("Grade: " + str(self.grade))
+#create student object
+    student1 = Student("63132986","Anh Thu",8.9)
+    student1.print_info()

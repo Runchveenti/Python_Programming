@@ -11,7 +11,7 @@ def LaSNT(n):
 
 def InSNT(n):
     for i in range (2, n+1):
-        if LaSNT(i): print(i, end='')
+        if LaSNT(i): print(i, end='\n')
 
 # Tim SNT nho nhat
 def TimSNT(n):
